@@ -1,11 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
+import CoinItem from "./src/components/CoinItem";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Hello</Text>
-      <StatusBar style="auto" />
+      <CoinItem />
+      <StatusBar style="light" />
     </View>
   );
 }
@@ -13,7 +14,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#121212",
     alignItems: "center",
     justifyContent: "center",
   },
