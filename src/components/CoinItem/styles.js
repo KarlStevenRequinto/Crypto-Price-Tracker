@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   title: { color: "white", fontSize: 16, fontWeight: "bold" },
   coinContainer: {
-    backgroundColor: "black",
+    backgroundColor: "#121212",
     flexDirection: "row",
     width: "100%",
     justifyContent: "space-between",
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     marginRight: 5,
     paddingHorizontal: 5,
   },
-  icon: { color: "green", alignSelf: "center", marginRight: 5 },
+  icon: { alignSelf: "center", marginRight: 5 },
 });
 
 export default styles;

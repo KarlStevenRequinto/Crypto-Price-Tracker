@@ -2,18 +2,29 @@ import { View, Text, Image, StyleSheet } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import styles from "./styles";
-const CoinItem = () => {
+import { marketCapHandler } from "../../utils/MarketCaps";
+const CoinItem = ({
+  name,
+  image,
+  mCapRank,
+  mrketCap,
+  symbol,
+  priceChangePctg,
+  currentPrice,
+}) => {
+  const prctColor = priceChangePctg < 0 ? "#ea3943" : "#16c784";
+  const iconName = priceChangePctg < 0 ? "caretdown" : "caretup";
   return (
     <View style={styles.coinContainer}>
       <View style={{ flexDirection: "row" }}>
         <Image
           source={{
-            uri: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+            uri: image,
           }}
           style={styles.image}
         />
         <View>
-          <Text style={styles.title}>Bitcoin</Text>
+          <Text style={styles.title}>{name}</Text>
           <View style={{ flexDirection: "row" }}>
             <View style={styles.titleContainer}>
               <Text
@@ -22,19 +33,27 @@ const CoinItem = () => {
                   fontWeight: "bold",
                 }}
               >
-                1
+                {mCapRank}
               </Text>
             </View>
-            <Text style={{ color: "white" }}>BTC</Text>
-            <AntDesign name="caretdown" size={12} style={styles.icon} />
-            <Text style={{ color: "white" }}>1.02 %</Text>
+            <Text style={{ color: "white" }}>{symbol.toUpperCase()}</Text>
+            <AntDesign
+              name={iconName}
+              size={12}
+              style={[styles.icon, { color: prctColor }]}
+            />
+            <Text style={{ color: prctColor }}>
+              {priceChangePctg.toFixed(2)} %
+            </Text>
           </View>
         </View>
       </View>
       <View></View>
-      <View>
-        <Text style={{ color: "white" }}>56,998,33</Text>
-        <Text style={{ color: "white" }}>Mcap 1,079 T</Text>
+      <View style={{ alignItems: "flex-end" }}>
+        <Text style={styles.title}>{currentPrice.toFixed(2)}</Text>
+        <Text style={{ color: "white" }}>
+          Mcap {marketCapHandler(mrketCap)}
+        </Text>
       </View>
     </View>
   );
