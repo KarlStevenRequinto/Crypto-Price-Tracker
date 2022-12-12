@@ -5,7 +5,7 @@ import data from "../../assets/data/cryptocurrencies";
 
 const CoinListScreen = () => {
   return (
-    <View style={{ backgroundColor: "#121212" }}>
+    <View style={{ backgroundColor: "#121212", paddingTop: 15 }}>
       <FlatList
         data={data}
         renderItem={(itemdata) => {
